@@ -1,4 +1,4 @@
-package com.foo.jms.queue.simple.echo;
+package com.foo.jms.p2p.simple.echo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;

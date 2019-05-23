@@ -1,4 +1,4 @@
-package com.foo.jms.queue.simple.echo;
+package com.foo.jms.p2p.simple.echo;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
