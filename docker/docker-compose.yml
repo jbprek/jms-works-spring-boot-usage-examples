@@ -4,10 +4,12 @@ services:
     image: ibmcom/mq:latest
     container_name: ibm-mq-playground
     environment:
-      MQ_APP_PASSWORD: passw0rd
-      LICENCE: accept
-      MQ_QMGR_NAME: MTGO
+      - LICENSE=accept
+      - MQ_APP_PASSWORD=passw0rd
+      - MQ_QMGR_NAME=MTGO
     ports:
       - 1414:1414
       - 9443:9443
+    volumes:
+      - ./20
 #TODO volume with custom configuration
