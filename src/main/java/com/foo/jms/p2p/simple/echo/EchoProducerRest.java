@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
 
 @Slf4j
 @RestController
+@RequestMapping(path="echo")
 public class EchoProducerRest {
 
     private JmsTemplate jmsTemplate;
@@ -20,19 +21,19 @@ public class EchoProducerRest {
         this.echoQueueParameters = echoQueueParameters;
     }
 
-    @GetMapping(path="echo")
+    @GetMapping
     public String ping() {
         return "Ping at:" + Instant.now();
     }
 
-    @PostMapping(path="echo/single", consumes = "text/plain")
+    @PostMapping(path="single", consumes = "text/plain")
     @ResponseStatus(HttpStatus.CREATED)
     public void sendSingleMessageToEchoQueue(@RequestBody String message) {
         jmsTemplate.send(echoQueueParameters.getName(), session -> session.createTextMessage(message));
     }
 
 
-    @PostMapping(path = "echo/multi/{numMessages}")
+    @PostMapping(path = "/multi/{numMessages}")
     @ResponseStatus(HttpStatus.CREATED)
     public void sendMultiMessageToEchoQueue(@PathVariable("numMessages") int numMessages) {
         log.info("Multi messages : {}", numMessages);

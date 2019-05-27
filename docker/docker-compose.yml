@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   ibm-mq-playground:
     image: ibmcom/mq:latest
@@ -11,5 +11,4 @@ services:
       - 1414:1414
       - 9443:9443
     volumes:
-      - ./20
-#TODO volume with custom configuration
+      - ./20-config.mqsc:/etc/mqm/20-config.mqsc
